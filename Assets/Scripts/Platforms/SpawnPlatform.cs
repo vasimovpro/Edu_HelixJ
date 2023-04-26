@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Platforms
 {
-    public class SpawnPlatform: MonoBehaviour
+    public class SpawnPlatform: Platform
     {
         
     }

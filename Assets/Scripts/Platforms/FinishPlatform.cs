@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Platforms
 {
-    public class FinishPlatform: MonoBehaviour
+    public class FinishPlatform: Platform
     {
         
     }

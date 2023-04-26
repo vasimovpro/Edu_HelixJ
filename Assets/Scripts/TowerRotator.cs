@@ -1,0 +1,30 @@
+using System;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
+public class TowerRotator : MonoBehaviour
+{
+    [SerializeField] private float _rotateSpeed;
+    private Rigidbody _rigidbody;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        //_rigidbody.AddTorque(Vector3.up * (Time.deltaTime * _rotateSpeed));
+        if (Input.touchCount > 0)
+        {
+            // Первый палец
+            Touch touch = Input.GetTouch(0);
+            // Если пальцем двигают
+            if (touch.phase == TouchPhase.Moved)
+            {
+                float torque = touch.deltaPosition.x * Time.deltaTime * _rotateSpeed;
+                _rigidbody.AddTorque(Vector3.up * torque);
+            }
+        }
+    }
+}
